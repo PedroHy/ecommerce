@@ -7,8 +7,8 @@ export const APP_ROUTES = {
     },
     public:{
         home:'/',
-        categories:'/categories/[_id]',
-        product:'/products/[_id]',
+        categories:'/categories/[id]',
+        product:'/products/[id]',
         search:'/search',
         login:'/auth/login',
         register:'/auth/register',

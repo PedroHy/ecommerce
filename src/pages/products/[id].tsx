@@ -1,17 +1,5 @@
-interface IContext {
-    params: {
-        id: string
-    }
-}
-
-interface IProduct {
-    _id: string,
-    pictures: [File],
-    name: string,
-    installment: string,
-    price: Number
-}
-
+import IContext from "@/interfaces/IContext"
+import IProduct from "@/interfaces/IProduct"
 
 export async function getStaticProps(context: IContext) {
     const { params } = context

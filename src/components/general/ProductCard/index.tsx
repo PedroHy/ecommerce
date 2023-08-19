@@ -1,17 +1,9 @@
-import { Heart } from '@phosphor-icons/react';
 import Link from 'next/link';
+import { Heart } from '@phosphor-icons/react';
 
-interface IProduct{
-    product:{
-        _id: string,
-        pictures: [File],
-        name: string,
-        installment: string,
-        price: Number
-    }
-}
+import IProduct from '@/interfaces/IProduct';
 
-export default function ProductCard({product}:IProduct){
+export default function ProductCard({product}:{product:IProduct}){
     const url = `http://localhost:3000/picture/${product.pictures[0]}`
 
     const price = ("" + product.price.toFixed(2)).replace('.', ',');
