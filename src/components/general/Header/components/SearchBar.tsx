@@ -3,7 +3,6 @@
 import IProduct from '@/interfaces/IProduct';
 import { api } from '@/services/api';
 import { MagnifyingGlass } from '@phosphor-icons/react'
-import Link from 'next/link';
 import { useEffect, useState } from 'react'
 
 export default function SearchBar() {

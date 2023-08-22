@@ -3,6 +3,8 @@ import { useState } from "react";
 import AliceCarousel from "react-alice-carousel";
 import FavoriteButton from "../FavoriteButton";
 
+import 'react-alice-carousel/lib/alice-carousel.css';
+
 export default function ProductImageGrid({product}:{product:IProduct}) {
 
     const [mainPicture, setMainPicture] = useState(`http://localhost:3000/picture/${product.pictures[0]}`)
