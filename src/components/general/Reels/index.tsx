@@ -1,9 +1,9 @@
 import IProduct from "@/interfaces/IProduct";
 import AliceCarousel from "react-alice-carousel";
 import ProductCard from "../ProductCard";
+import dynamic from "next/dynamic";
 
-
-export default function Reels({products}:{products?:Array<IProduct>}){
+const Reels = ({products}:{products?:Array<IProduct>})=>{
     const items:Array<React.ReactNode> = []
     
     const responsive = {
@@ -43,3 +43,5 @@ export default function Reels({products}:{products?:Array<IProduct>}){
         </div>
     )
 }
+
+export default dynamic (() => Promise.resolve(Reels), {ssr: false})
