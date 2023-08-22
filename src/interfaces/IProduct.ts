@@ -6,6 +6,7 @@ export default interface IProduct {
     name: string,
     installment: string,
     price: Number,
-    category:ICategory
+    category:ICategory,
+    description: string
 
 }

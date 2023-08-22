@@ -1,6 +1,7 @@
 import Header from "@/components/general/Header"
 import { checkHasHeader } from "@/functions/check-has-header";
 import { useRouter } from "next/router";
+import Sidebar from "../general/Sidebar";
 
 export default function PublicMain({children}:{children: React.ReactNode}){
     
@@ -10,8 +11,8 @@ export default function PublicMain({children}:{children: React.ReactNode}){
     
     return(
         <>
-            {hasHeader&&<Header />}
             {children}
+            {hasHeader&&<Header />}
         </>
     )
 }

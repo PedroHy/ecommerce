@@ -2,8 +2,9 @@ import Link from 'next/link'
 import useSWR from 'swr'
 
 import ICategory  from '@/interfaces/ICategory'
+import { api } from '@/services/api'
 
-const fetcher = () => fetch('http://localhost:3000/category').then((res) => res.json())
+const fetcher = () => api.get('/category').then((res) => res.data)
 
 export default function Navbar() {
     const { data, error } = useSWR('categories', fetcher)

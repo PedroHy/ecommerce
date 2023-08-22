@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { Heart } from '@phosphor-icons/react';
 
 import IProduct from '@/interfaces/IProduct';
+import FavoriteButton from '../FavoriteButton';
 
 export default function ProductCard({product}:{product:IProduct}){
     const url = `http://localhost:3000/picture/${product.pictures[0]}`
@@ -11,9 +11,7 @@ export default function ProductCard({product}:{product:IProduct}){
     return(
         <div className='group w-44 bg-white mb-4 cursor-pointer shadow-md h-80'>
             <Link className='no-underline text-black relative' href={`/products/${product._id}`}>
-                <div className="hidden group-hover:block absolute right-1 top-1 text-zinc-400 hover:text-cyan-500 bg-white/25 p-1 flex items-center justify-center rounded-full">
-                    <Heart size={24} />
-                </div>
+                <FavoriteButton size={24} />
                 <img className="h-40 p-0.5 object-contain w-full" src={url}></img>
                 <div className="p-2 flex flex-col gap-2 border-t">
                     <div>
