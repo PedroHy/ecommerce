@@ -9,6 +9,12 @@ export async function getStaticProps(context: IContext) {
     const response = await api.get(`product/${params.id}`)
     const product = response.data
 
+    if (!product) {
+        return {
+          notFound: true,
+        }
+    }
+
     return {
         props: {
             product
@@ -34,7 +40,7 @@ export async function getStaticPaths() {
 
 export default function Product({ product }: { product: IProduct }) {
     return (
-        <div className="flex flex-col mt-28 md:mt-30 mx-2 md:mx-24 pt-6">
+        <div className="flex flex-col mt-2 md:mt-3 mx-2 md:mx-24 pt-6">
             <div className="flex rounded bg-white flex-wrap justify-center gap-2">
                 <ProductImageGrid product={product} />
                 <div className="relative w-96 p-8 flex flex-col gap-4">

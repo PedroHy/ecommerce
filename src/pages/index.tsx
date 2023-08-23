@@ -6,6 +6,7 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 
 import { api } from "@/services/api";
 
+
 export async function getStaticProps(){
   const response = await api.get('/product/favorites')
   const products = response.data

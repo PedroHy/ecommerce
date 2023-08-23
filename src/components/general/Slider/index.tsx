@@ -3,7 +3,7 @@ import { Carousel } from 'react-bootstrap';
 
 export default function Slider() {
     return (
-        <div className='hero mt-16 h-64 md:h-80 md:mt-28 min-h-64 bg-zinc-400 sticky'>
+        <div className='hero h-64 md:h-80 min-h-64 bg-zinc-400 sticky z-0'>
             <Carousel>
                 <Carousel.Item>
                     <div className='h-64 md:h-80 bg-blue-400'></div>

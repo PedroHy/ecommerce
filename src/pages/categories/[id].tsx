@@ -8,14 +8,20 @@ import EmptyPage from "@/components/general/EmptyPage";
 import { api } from "@/services/api";
 
 export async function getStaticProps(context: IContext) {
-    const { params } = context
-    const response = await api.get(`/product/${params.id}`);
-    const products = response.data
-
-    return {
-        props: {
-            products
+    try{
+        const { params } = context
+        const response = await api.get(`/product/${params.id}`);
+        const products = response.data
+    
+        return {
+            props: {
+                products
+            }
         }
+    }catch{
+        return {
+            notFound: true,
+          }
     }
 
 }
@@ -46,7 +52,7 @@ export default function Category({ products }: { products: Array<IProduct> }) {
         )
     }
     return (
-        <div className="w-max mt-28 md:mt-32 mx-auto">
+        <div className="w-max mt-2 md:mt-2 mx-auto">
             <h1 className="text-3xl font-semibold">{products[0].category.name}</h1>
             <Grid>
                 {products.map((product) => {
