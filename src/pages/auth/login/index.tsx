@@ -28,7 +28,6 @@ export default function Login() {
                         <Form.Input placeholder="E-mail" type="text" onChange={(e: IEvent) => { setEmail(e.target.value) }} />
                         <Form.Input placeholder="Senha" type="password" onChange={(e: IEvent) => { setPassword(e.target.value) }} />
                     </Form.Inputs>
-                    <button onClick={doLogin}>Logar</button>
                     <Form.Button onClick={doLogin}>Entrar</Form.Button>
                     <Form.Links>
                         <Link href='auth/register' className="text-sm text-blue-500">Criar uma conta</Link>

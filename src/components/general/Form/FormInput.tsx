@@ -1,6 +1,5 @@
 import { Eye } from "@phosphor-icons/react";
-import { InputHTMLAttributes, useState } from "react"
-import { FunctionTypeNode } from "typescript";
+import { useState } from "react"
 
 interface IFormInput{
     placeholder?: string,

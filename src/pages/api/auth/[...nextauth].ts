@@ -1,7 +1,5 @@
-import { api } from "@/services/api";
 import NextAuth, { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials";
-
 
 export const authOptions:NextAuthOptions = {
   
@@ -25,10 +23,7 @@ export const authOptions:NextAuthOptions = {
             },
             body: JSON.stringify({ email, password })
           })
-          const user = response.json()
-
-          //const res = await api.post('/auth/client/authenticate', {email, password})
-          //const user = res.data
+          const {client: user} = await response.json()
 
           if(response.ok && user) {
             return user;
@@ -40,10 +35,23 @@ export const authOptions:NextAuthOptions = {
   session:{
     strategy:"jwt"
   },
-
+  
   pages:{
     signIn:'/auth/login'
+  },
+
+  callbacks:{
+    async jwt({token, user}) {
+      return {...token, ...user}
+    },
+
+    async session({ session, token, user}){
+      session.user = token as any;
+      return session
+    },
   }
+
+
 
 }
 

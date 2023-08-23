@@ -6,10 +6,12 @@ import { useRouter } from 'next/router';
 import { checkIsPublicRoute } from '@/functions/check-is-a-public-route';
 import PublicMain from '@/components/PublicMain';
 import ProtectedMain from '@/components/ProtectedMain';
+import { Session } from 'next-auth';
 
 interface IApp extends AppProps{
-  session?: any
+  session?: Session
 }
+
 
 export default function App({ Component, pageProps, session }:IApp) {
 

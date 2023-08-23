@@ -1,12 +1,12 @@
 import axios from "axios";
-import { parseCookies } from "nookies";
-
-const { 'client.token': token } = parseCookies();
 
 export const api = axios.create({
-    baseURL:'http://localhost:3000/'
+    baseURL:'http://localhost:3000/',
+    headers: {"Content-Type": "application/json"}
 })
 
-if(token){
-    api.defaults.headers['Authorizathion'] = `Bearer ${token}`;
-}
+export const apiAuth = axios.create({
+    baseURL:'http://localhost:3000/',
+    headers: {"Content-Type": "application/json"}
+})
+

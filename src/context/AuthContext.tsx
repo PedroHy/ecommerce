@@ -1,13 +1,11 @@
-import { createContext } from "react";
+import { SessionProvider } from "next-auth/react"
+import React, {ReactNode} from "react";
 
-export const AuthContext = createContext({});
-
-export function AuthProvider({ children }:{children: React.ReactNode}){
+export function AuthProvider({ children, session }:{children: ReactNode, session?:any}){
     const isAuthenticate = false;
-
     return(
-        <AuthContext.Provider value={{ isAuthenticate }}>
-            {children}
-        </AuthContext.Provider>
+        <SessionProvider>
+            { children }
+        </SessionProvider>
     )
 }
