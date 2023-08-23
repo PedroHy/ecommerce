@@ -1,10 +1,22 @@
 import Link from "next/link";
 import { Form } from "@/components/general/Form";
+import { useState } from "react";
+import { signIn } from "next-auth/react";
+
+interface IEvent {
+
+    target: {
+        value: string
+    }
+
+}
 
 export default function Login() {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
     const doLogin = async () => {
-        
+        const result = await signIn("credentials", { email, password, redirect: true, callbackUrl: '/' })
     }
 
     return (
@@ -13,9 +25,10 @@ export default function Login() {
                 <Form.Root>
                     <Form.Title>Login</Form.Title>
                     <Form.Inputs>
-                        <Form.Input placeholder="E-mail" type="text" />
-                        <Form.Input placeholder="Senha" type="password" />
+                        <Form.Input placeholder="E-mail" type="text" onChange={(e: IEvent) => { setEmail(e.target.value) }} />
+                        <Form.Input placeholder="Senha" type="password" onChange={(e: IEvent) => { setPassword(e.target.value) }} />
                     </Form.Inputs>
+                    <button onClick={doLogin}>Logar</button>
                     <Form.Button onClick={doLogin}>Entrar</Form.Button>
                     <Form.Links>
                         <Link href='auth/register' className="text-sm text-blue-500">Criar uma conta</Link>
