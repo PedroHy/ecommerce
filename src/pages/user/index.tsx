@@ -5,8 +5,7 @@ import { signOut, useSession } from "next-auth/react"
 
 export default function User() {
 
-    const { data:session } = useSession()
-    console.log(session?.user.accessToken)
+    const { data:session } = useSession();
 
     return (
         <div className="bg-zinc-100 h-screen box-border	">

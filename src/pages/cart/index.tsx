@@ -1,3 +1,5 @@
+'use client'
+
 import { ShoppingCartSimple } from "@phosphor-icons/react";
 import EmptyPage from "@/components/general/EmptyPage";
 

@@ -10,7 +10,6 @@ export default function List({ products }: { products: Array<IListItem> }) {
             <div className='h-80 flex flex-col gap-2 p-2 border-box overflow-y-scroll'>
                 {
                     products.map(({ product }: { product: IProduct }) => {
-                        console.log(product)
                         return <ListItem key={product._id} product={product} />
                     })
                 }

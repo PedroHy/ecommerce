@@ -10,12 +10,10 @@ export default function ListItem({ product }: { product: IProduct }) {
 
     const incrementQtd = () => {
         setQuant(quant + 1);
-        setSubTotal(quant * Number(subTotal));
     }
 
     const decrementQtd = () => {
         setQuant(quant - 1);
-        setSubTotal(quant * Number(subTotal));
     }
 
     const removeFromCart = () => {
