@@ -33,7 +33,7 @@ export default function ListItem({ product }: { product: IProduct }) {
                     <PlusCircle className="cursor-pointer" onClick={incrementQtd} size={16} weight="fill" />
                 </div>
                 <img src={url} className="w-12 h-12 object-cover"></img>
-                <Link href={`/products/${product._id}`} className="no-underline text-black">{product.name}</Link>
+                <a href={`/products/${product._id}`} className="no-underline text-black">{product.name}</a>
             </div>
             <span className="hidden md:flex">{("R$" + subTotal.toFixed(2)).replace('.', ',')}</span>
             <Trash onClick={removeFromCart} size={24} className="cursor-pointer" />

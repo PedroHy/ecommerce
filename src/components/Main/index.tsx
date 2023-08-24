@@ -3,7 +3,7 @@ import { checkHasHeader } from "@/functions/check-has-header";
 import { useRouter } from "next/router";
 import Sidebar from "../general/Sidebar";
 
-export default function PublicMain({children}:{children: React.ReactNode}){
+export default function Main({children}:{children: React.ReactNode}){
     
     const pathName = useRouter();
     const route = pathName.route;

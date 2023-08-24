@@ -20,7 +20,7 @@ export default function User() {
                         <div className="p-4 border-t font-semibold easy-in-out hover:bg-zinc-100 flex items-center justify-between cursor-pointer">Termos de uso <CaretRight weight="bold" size={16} /></div>
                         <div className="p-4 border-t font-semibold easy-in-out hover:bg-zinc-100 flex items-center justify-between cursor-pointer">Ajuda <CaretRight weight="bold" size={16} /></div>
                     </div>
-                    <button onClick={() => signOut} className="text-red-500 text-md p-4 cursor-pointer">Sair da conta</button>
+                    <button onClick={() => signOut()} className="text-red-500 text-md p-4 cursor-pointer">Sair da conta</button>
                 </div>
                 <div className="w-full bg-white">
                     <span>container</span>

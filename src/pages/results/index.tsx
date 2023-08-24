@@ -18,7 +18,7 @@ export default function Search() {
         api.get('/product').then((res) => {
             setProducts(res.data)
         })
-    })
+    }, [])
 
     useEffect(() => {
         if(search){

@@ -3,6 +3,7 @@
 import IProduct from '@/interfaces/IProduct';
 import { api } from '@/services/api';
 import { MagnifyingGlass } from '@phosphor-icons/react';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 export default function SearchBar() {
@@ -15,7 +16,7 @@ export default function SearchBar() {
         api.get('/product').then((res) => {
             setProducts(res.data)
         })
-    })
+    }, [])
 
     useEffect(() => {
         const searchFormated = search.toLowerCase();

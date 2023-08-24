@@ -1,31 +1,19 @@
 import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
 
-import { SessionProvider } from "next-auth/react"
-import { useRouter } from 'next/router';
-import { checkIsPublicRoute } from '@/functions/check-is-a-public-route';
-import PublicMain from '@/components/PublicMain';
-import ProtectedMain from '@/components/ProtectedMain';
+import type { AppProps } from 'next/app'
 import { Session } from 'next-auth';
 
-interface IApp extends AppProps{
+import { SessionProvider } from "next-auth/react"
+import Main from '@/components/Main';
+
+interface IApp extends AppProps {
   session?: Session
 }
 
-
-export default function App({ Component, pageProps, session }:IApp) {
-
-  const pathName = useRouter();
-  const route = pathName.route;
-  const isPublic = checkIsPublicRoute(route);
-
-  return(
+export default function App({ Component, pageProps, session }: IApp) {
+  return (
     <SessionProvider session={session}>
-      {
-        isPublic?
-        <PublicMain><Component {...pageProps} /></PublicMain>:
-        <ProtectedMain><Component {...pageProps} /></ProtectedMain>
-      }
+      <Main><Component {...pageProps} /></Main>
     </SessionProvider>
-  ) 
+  )
 }
