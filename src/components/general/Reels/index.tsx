@@ -36,7 +36,7 @@ const Reels = ({products}:{products?:Array<IProduct>})=>{
 
     return(
         <div className='products mx-4 sm:mx-6 md:mx-8 lg:mx-24'>
-            <h2 className='text-4xl my-6'>Favoritos:</h2>
+            <h2 className='text-3xl my-6'>Favoritos:</h2>
             <div className='flex gap-4 justify-around'>
                 <AliceCarousel mouseTracking items={items} responsive={responsive} disableButtonsControls />
             </div>

@@ -30,7 +30,7 @@ export default function Search() {
         if (search == '') {
             setProductsFiltred([])
         }
-    }, [search])
+    }, [products])
 
     return (
         <div className="w-max mt-2 md:mt-1 mx-auto">

@@ -14,21 +14,27 @@ export default function Cart() {
     const [products, setProducts] = useState([])
     const [subtotal, setSubtotal] = useState(0)
 
-    useEffect(() => {
-        try {
-            const res = fetch(`http://localhost:3000/cart/${session.data?.user.cart}`, {
-                method: "Get",
-                headers: {
-                    authorization: `bearer ${session.data?.user.accessToken}`
-                }
-            }).then(res => {
-                res.json().then((data) => {
-                    setProducts(data.cart.products);
-                    setSubtotal(data.cart.subtotal)
+    useEffect(() => {   
+        if(session.data?.user){
+            try {
+                const res = fetch(`http://localhost:3000/cart/${session.data.user.cart}`, {
+                    method: "Get",
+                    headers: {
+                        authorization: `bearer ${session.data?.user.accessToken}`
+                    }
+                }).then(res => {
+                    if(!res.ok){
+                        return {err: "Error getting products"}
+                    }
+                    res.json().then((data) => {
+                        console.log(data.cart.products)
+                        setProducts(data.cart.products);
+                        setSubtotal(data.cart.subtotal)
+                    })
                 })
-            })
-        } catch (err) {
-            console.log(err)
+            } catch (err) {
+                console.log("Não autorizado")
+            }
         }
     }, [])
 

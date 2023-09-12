@@ -4,23 +4,38 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 
 interface IEvent {
-
     target: {
         value: string
     }
-
 }
 
+
 export default function Login() {
+
+
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [errorMessage, setErrorMessage] = useState(false)
 
     const doLogin = async () => {
-        const result = await signIn("credentials", { email, password, redirect: true, callbackUrl: '/' })
+        const result = await signIn("credentials", { email, password, redirect: false, callbackUrl: '/' })
+        if(result?.error){
+            setErrorMessage(true)
+        }else{
+            return {
+                redirect: {
+                  permanent: false,
+                  destination: "/"
+                }
+            }
+        }
     }
 
     return (
         <div className="flex justify-center items-center bg-blue-600 h-screen">
+            <div className={errorMessage?"bg-red-200 absolute bottom-20 text-center text-red-800 rounded p-4":"hidden"}>
+                <span>Erro: Usuário ou senha inválidos</span>
+            </div>
             <div className="flex">
                 <Form.Root>
                     <Form.Title>Login</Form.Title>
